@@ -496,12 +496,19 @@
   /* scrollbar */
   .main { scrollbar-width: thin; scrollbar-color: var(--gold-dark) transparent; }
 
+  /* ─── TOUCH GLOBAL ─── */
+  button, a, [onclick] { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+
   /* ─── MENU HAMBURGER ─── */
   .menu-btn {
     display: none;
     background: none; border: none; cursor: pointer;
-    color: var(--gold); font-size: 28px; padding: 4px 6px;
+    color: var(--gold); font-size: 26px; padding: 8px;
     line-height: 1; flex-shrink: 0;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    min-width: 44px; min-height: 44px;
+    display: none; align-items: center; justify-content: center;
   }
 
   /* ─── OVERLAY MOBILE ─── */
@@ -511,30 +518,124 @@
   }
   .sidebar-overlay.open { display: block; }
 
+  /* ─── BOTTOM NAV (mobile) ─── */
+  .bottom-nav {
+    display: none;
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 90;
+    background: var(--dark);
+    border-top: 1px solid rgba(201,168,76,0.2);
+    height: 62px;
+  }
+  .bottom-nav-inner {
+    display: flex; height: 100%;
+  }
+  .bn-btn {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 3px;
+    background: none; border: none; cursor: pointer;
+    color: rgba(255,255,255,0.4);
+    transition: color 0.15s;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    min-height: 44px;
+  }
+  .bn-btn.active { color: var(--gold); }
+  .bn-btn:active { opacity: 0.7; }
+  .bn-icon { font-size: 20px; line-height: 1; }
+  .bn-label { font-size: 10px; font-weight: 600; letter-spacing: 0.3px; }
+
   @media (max-width: 900px) {
-    .menu-btn { display: block; }
+    /* ── Hamburger ── */
+    .menu-btn { display: flex; }
+
+    /* ── Sidebar drawer ── */
     .sidebar {
       transform: translateX(-100%);
-      transition: transform 0.25s ease;
-      z-index: 100;
+      transition: transform 0.28s cubic-bezier(.4,0,.2,1);
+      z-index: 101;
     }
     .sidebar.open { transform: translateX(0); }
-    .main { margin-left: 0; }
-    .lesson-content, .bonus-page, .cert-page, #welcome-screen { padding: 24px 16px 60px; }
-    .stats-strip { grid-template-columns: repeat(2,1fr); }
-    .cortes-grid { grid-template-columns: 1fr; }
-    .cert-container { padding: 40px 20px; }
-    .lesson-main-title { font-size: 24px; }
-    .cert-name-input { font-size: 24px; }
-    .tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    .tab-btn { white-space: nowrap; flex-shrink: 0; }
-    .welcome-hero h1 { font-size: 28px; }
-    .welcome-hero { padding: 32px 24px; }
-    .bonus-hero { padding: 28px 20px; }
-    .bonus-hero-title { font-size: 22px; }
-    .pricing-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-    .step-card { flex-direction: row; }
+    .sidebar-overlay { z-index: 100; }
+    .lesson-item { padding: 13px 20px; min-height: 48px; }
+
+    /* ── Bottom nav visível ── */
+    .bottom-nav { display: block; }
+
+    /* ── Header ── */
+    .logo span { display: none; }
+    .logo { font-size: 19px; }
     .header-right .badge-cert { display: none; }
+    header { padding: 0 16px; }
+
+    /* ── Layout ── */
+    .main { margin-left: 0; }
+    /* +62px bottom padding para a bottom nav não sobrepor conteúdo */
+    .lesson-content, .bonus-page, .cert-page, #welcome-screen { padding: 20px 16px 80px; }
+    .bonus-page { padding-top: 24px; }
+
+    /* ── Welcome ── */
+    #welcome-screen { padding-top: 24px; }
+    .welcome-hero { padding: 28px 20px; margin-bottom: 20px; }
+    .welcome-hero h1 { font-size: 24px; }
+    .welcome-hero p { font-size: 14px; margin-bottom: 20px; }
+    .welcome-hero::after { font-size: 80px; right: 16px; bottom: -10px; opacity: 0.04; }
+    .cta-primary { width: 100%; padding: 15px; font-size: 14px; }
+    .stats-strip { grid-template-columns: repeat(2,1fr); gap: 10px; margin-bottom: 20px; }
+    .stat-card { padding: 16px 10px; }
+    .stat-num { font-size: 22px; }
+    .stat-label { font-size: 11px; }
+    .cortes-grid { grid-template-columns: 1fr; gap: 8px; }
+    .corte-card { padding: 14px 16px; gap: 12px; }
+
+    /* ── Aula ── */
+    .lesson-main-title { font-size: 22px; line-height: 1.25; }
+    .lesson-desc { font-size: 14px; }
+    .lesson-number-tag { font-size: 10px; }
+    .tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .tab-btn { white-space: nowrap; flex-shrink: 0; padding: 12px 14px; font-size: 13px; }
+    .step-card { padding: 14px 16px; gap: 12px; }
+    .step-number { width: 34px; height: 34px; font-size: 15px; }
+    .step-body h4 { font-size: 14px; }
+    .step-body p { font-size: 13px; }
+    .step-tip { font-size: 12px; }
+    .tools-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .tool-card { padding: 14px 10px; }
+    .tool-icon { font-size: 24px; }
+    .tool-name { font-size: 12px; }
+    .next-lesson-card { padding: 16px; gap: 14px; margin-top: 20px; }
+    .next-title { font-size: 14px; }
+    .mark-done-btn { width: 100%; text-align: center; min-height: 48px; font-size: 15px; }
+
+    /* ── Bônus ── */
+    .bonus-hero { padding: 24px 18px; margin-bottom: 20px; }
+    .bonus-hero-title { font-size: 20px; }
+    .bonus-hero-desc { font-size: 14px; }
+    .checklist-item { padding: 12px 14px; gap: 10px; }
+    .check-text h4 { font-size: 13px; }
+    .check-text p { font-size: 12px; }
+    .script-block { padding: 16px; margin-bottom: 12px; }
+    .script-line { font-size: 14px; }
+    .script-note { font-size: 12px; }
+    .pricing-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 8px; }
+    .pricing-table { min-width: 420px; }
+    .bonus-content-block h3 { font-size: 18px; }
+
+    /* ── Certificado ── */
+    .cert-container { padding: 28px 16px; }
+    .cert-name-input { font-size: 22px; }
+    .cert-logo-text { font-size: 12px; letter-spacing: 4px; }
+    .cert-course-name { font-size: 18px; }
+    .cert-subtitle { font-size: 12px; }
+    .cert-signature-row { flex-direction: column !important; gap: 20px !important; align-items: center !important; }
+    .cert-download-btn { width: 100%; padding: 15px; font-size: 13px; }
+  }
+
+  @media (max-width: 390px) {
+    .lesson-main-title { font-size: 20px; }
+    .welcome-hero h1 { font-size: 22px; }
+    .stats-strip { grid-template-columns: 1fr 1fr; }
+    .step-card { gap: 10px; padding: 12px 14px; }
+    header { padding: 0 12px; gap: 10px; }
   }
 </style>
 </head>
@@ -548,7 +649,7 @@
   <div class="logo">✂ CortesTop <span>Área de Membros</span></div>
   <div class="header-right">
     <span class="badge-cert">🏆 Certificado Incluso</span>
-    <div class="user-avatar">MS</div>
+    <div class="user-avatar" id="user-avatar" title="Sair" onclick="doLogout()">?</div>
   </div>
 </header>
 
@@ -897,7 +998,7 @@
         <div class="cert-subtitle">Tendo demonstrado domínio técnico dos 10 cortes de maior demanda no mercado brasileiro de beleza, incluindo técnicas avançadas de finalização, consulta ao cliente e gestão profissional.</div>
         <div class="cert-seal">✂</div>
         <div class="cert-date" id="cert-date"></div>
-        <div style="display:flex; gap:60px; justify-content:center; margin-bottom:32px;">
+        <div class="cert-signature-row" style="display:flex; gap:60px; justify-content:center; margin-bottom:32px;">
           <div style="text-align:center;">
             <div style="width:120px; border-bottom: 1.5px solid var(--border); margin-bottom:6px;"></div>
             <div style="font-size:12px; color:var(--muted);">Diretora Pedagógica</div>
@@ -1154,6 +1255,7 @@ function hideAll() {
 function showLesson(idx) {
   closeSidebar();
   hideAll();
+  setActiveNav('bn-aulas');
   currentLesson = idx;
   const l = lessons[idx];
   document.getElementById('lesson-area').style.display = 'block';
@@ -1270,12 +1372,14 @@ function switchTab(name, btn) {
 function showBonus(id) {
   closeSidebar();
   hideAll();
+  setActiveNav('bn-bonus');
   document.getElementById('bonus-' + id).classList.add('active');
 }
 
 function showCert() {
   closeSidebar();
   hideAll();
+  setActiveNav('bn-cert');
   document.getElementById('cert-page').classList.add('active');
   const today = new Date();
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -1303,8 +1407,61 @@ function loadVideo(event, filename, lessonIdx) {
   wrapper.innerHTML = '<video controls autoplay style="width:100%;height:100%;display:block;background:#000;"><source src="' + url + '" type="video/mp4"></video>';
 }
 
+// Carrega sessão do usuário
+(function() {
+  try {
+    const s = JSON.parse(localStorage.getItem('cortestop_session') || 'null');
+    if (!s) { window.location.href = 'index.html'; return; }
+    const initials = s.name ? s.name.trim().split(' ').map(w => w[0]).slice(0,2).join('').toUpperCase() : '?';
+    document.getElementById('user-avatar').textContent = initials;
+    document.getElementById('user-avatar').title = s.name + ' — Sair';
+  } catch(e) {}
+})();
+
+function doLogout() {
+  if (confirm('Deseja sair da sua conta?')) {
+    localStorage.removeItem('cortestop_session');
+    window.location.href = 'index.html';
+  }
+}
+
 updateProgress();
+
+function goHome() {
+  closeSidebar();
+  hideAll();
+  document.getElementById('welcome-screen').style.display = 'block';
+  setActiveNav('bn-inicio');
+}
+
+function setActiveNav(id) {
+  document.querySelectorAll('.bn-btn').forEach(b => b.classList.remove('active'));
+  const el = document.getElementById(id);
+  if (el) el.classList.add('active');
+}
 </script>
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav" id="bottom-nav">
+  <div class="bottom-nav-inner">
+    <button class="bn-btn active" id="bn-inicio" onclick="goHome()">
+      <span class="bn-icon">🏠</span>
+      <span class="bn-label">Início</span>
+    </button>
+    <button class="bn-btn" id="bn-aulas" onclick="toggleSidebar()">
+      <span class="bn-icon">✂</span>
+      <span class="bn-label">Aulas</span>
+    </button>
+    <button class="bn-btn" id="bn-bonus" onclick="showBonus('instagram')">
+      <span class="bn-icon">🎁</span>
+      <span class="bn-label">Bônus</span>
+    </button>
+    <button class="bn-btn" id="bn-cert" onclick="showCert()">
+      <span class="bn-icon">🎓</span>
+      <span class="bn-label">Cert.</span>
+    </button>
+  </div>
+</nav>
 
 </body>
 </html>
