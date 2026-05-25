@@ -210,6 +210,32 @@
   }
   .lesson-desc { font-size: 16px; color: var(--muted); line-height: 1.75; }
 
+  .lesson-badges {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-top: 16px;
+  }
+  .lesson-badge-item {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 8px 14px;
+    background: #FFFAED;
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 100px;
+    font-size: 13px; font-weight: 600;
+    color: var(--text);
+    line-height: 1;
+  }
+  .lesson-badge-item.price {
+    background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(240,213,140,0.18));
+    color: var(--gold-dark);
+    border-color: rgba(201,168,76,0.5);
+  }
+  .lesson-badge-item .badge-icon { font-size: 14px; }
+  .lesson-badge-item .badge-label {
+    font-size: 10px; text-transform: uppercase; letter-spacing: 1.2px;
+    color: var(--muted); font-weight: 700;
+  }
+  .lesson-badge-item .badge-value { font-weight: 700; }
+
   /* ─── CONTENT TABS ─── */
   .tabs {
     display: flex; gap: 0;
@@ -560,6 +586,98 @@
     text-transform: uppercase; white-space: nowrap; flex-shrink: 0;
   }
 
+  /* ─── UPDATE BANNER ─── */
+  .update-banner {
+    display: flex; align-items: center; gap: 16px;
+    background: linear-gradient(135deg, #FFFAED, #FFF4D6);
+    border: 1.5px solid rgba(201,168,76,0.35);
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin-bottom: 28px;
+  }
+  .update-banner-icon {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(139,105,20,0.3);
+  }
+  .update-banner h3 {
+    font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 3px;
+  }
+  .update-banner p { font-size: 13px; color: var(--text2); line-height: 1.5; }
+
+  /* ─── FUNDAMENTOS GRID ─── */
+  .fund-section { margin-top: 32px; margin-bottom: 32px; }
+  .fund-section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; color: var(--dark);
+    margin-bottom: 6px;
+  }
+  .fund-section-subtitle {
+    font-size: 14px; color: var(--muted); margin-bottom: 16px;
+  }
+  .fund-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .fund-card {
+    background: var(--dark);
+    border-radius: 14px; padding: 22px 20px;
+    cursor: pointer;
+    transition: transform 0.15s, border-color 0.15s;
+    border: 1px solid rgba(201,168,76,0.25);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .fund-card:hover { border-color: var(--gold); }
+  .fund-card:active { transform: scale(0.97); }
+  .fund-card-icon {
+    width: 42px; height: 42px; border-radius: 12px;
+    background: rgba(201,168,76,0.15);
+    color: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; margin-bottom: 14px;
+  }
+  .fund-card-num {
+    font-size: 10px; font-weight: 700; color: var(--gold);
+    letter-spacing: 1.8px; text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .fund-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px; font-weight: 700; color: #fff;
+    margin-bottom: 6px; line-height: 1.3;
+  }
+  .fund-card-desc { font-size: 12px; color: rgba(192,168,120,0.85); line-height: 1.55; }
+
+  /* ─── HELP FOOTER ─── */
+  .help-footer {
+    background: var(--surface);
+    border: 1px solid rgba(0,0,0,0.07);
+    border-radius: 16px;
+    padding: 24px; margin-top: 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .help-footer h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px; color: var(--text); margin-bottom: 6px;
+  }
+  .help-footer > p { font-size: 13px; color: var(--muted); margin-bottom: 16px; line-height: 1.6; }
+  .help-links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .help-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 14px;
+    background: #FFFAED;
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 100px;
+    font-size: 12px; font-weight: 600;
+    color: var(--gold-dark);
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s, transform 0.1s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .help-link:hover { background: #FFF4D6; }
+  .help-link:active { transform: scale(0.95); }
+
   /* ─── SCROLLBAR ─── */
   .main { scrollbar-width: thin; scrollbar-color: rgba(201,168,76,0.3) transparent; }
 
@@ -664,6 +782,22 @@
     .cortes-grid { grid-template-columns: 1fr; gap: 8px; }
     .corte-card { padding: 13px 14px; }
 
+    /* Update banner + Fundamentos + Help footer */
+    .update-banner { padding: 14px 16px; gap: 12px; border-radius: 12px; margin-bottom: 20px; }
+    .update-banner-icon { width: 38px; height: 38px; font-size: 19px; }
+    .update-banner h3 { font-size: 14px; }
+    .update-banner p { font-size: 12px; }
+    .fund-section { margin-top: 22px; margin-bottom: 22px; }
+    .fund-section-title { font-size: 19px; }
+    .fund-section-subtitle { font-size: 13px; margin-bottom: 12px; }
+    .fund-grid { grid-template-columns: 1fr; gap: 10px; }
+    .fund-card { padding: 18px 16px; border-radius: 12px; }
+    .fund-card-icon { width: 38px; height: 38px; font-size: 19px; margin-bottom: 12px; border-radius: 10px; }
+    .help-footer { padding: 18px; border-radius: 14px; margin-top: 22px; }
+    .help-footer h4 { font-size: 15px; }
+    .help-footer > p { font-size: 12px; }
+    .help-link { font-size: 11px; padding: 7px 12px; }
+
     /* Aula */
     .lesson-content { padding: 20px 16px; }
     .lesson-main-title { font-size: 24px; line-height: 1.22; }
@@ -753,6 +887,22 @@
     </div>
 
     <div class="sidebar-section">
+      <span class="sidebar-label">📚 Fundamentos</span>
+      <a class="bonus-item" onclick="showBonus('fund-secionamento')" style="padding: 11px 18px; border-bottom: none; min-height: 44px;">
+        <span class="bonus-icon">✂</span>
+        <span class="bonus-name">1. Seccionamento</span>
+      </a>
+      <a class="bonus-item" onclick="showBonus('fund-camadas')" style="padding: 11px 18px; border-bottom: none; min-height: 44px;">
+        <span class="bonus-icon">📐</span>
+        <span class="bonus-name">2. Camadas</span>
+      </a>
+      <a class="bonus-item" onclick="showBonus('fund-acabamento')" style="padding: 11px 18px; border-bottom: none; min-height: 44px;">
+        <span class="bonus-icon">✨</span>
+        <span class="bonus-name">3. Acabamento</span>
+      </a>
+    </div>
+
+    <div class="sidebar-section" style="margin-top: 14px; border-top: 1px solid var(--border2); padding-top: 10px;">
       <span class="sidebar-label">✂ Os 10 Cortes</span>
       <a class="lesson-item done" onclick="showLesson(0)">
         <div class="lesson-num">✓</div>
@@ -822,6 +972,30 @@
         <span class="bonus-name">Meu Certificado</span>
       </a>
     </div>
+
+    <div class="sidebar-bonus" style="margin-top: 0;">
+      <span class="sidebar-label" style="padding: 0 0 8px;">⚙ Suporte &amp; Legal</span>
+      <a class="bonus-item" onclick="showBonus('suporte')">
+        <span class="bonus-icon">💬</span>
+        <span class="bonus-name">Suporte</span>
+      </a>
+      <a class="bonus-item" onclick="showBonus('faq')">
+        <span class="bonus-icon">❓</span>
+        <span class="bonus-name">Perguntas Frequentes</span>
+      </a>
+      <a class="bonus-item" onclick="showBonus('reembolso')">
+        <span class="bonus-icon">🛡</span>
+        <span class="bonus-name">Garantia / Reembolso</span>
+      </a>
+      <a class="bonus-item" onclick="showBonus('termos')">
+        <span class="bonus-icon">📄</span>
+        <span class="bonus-name">Termos de Uso</span>
+      </a>
+      <a class="bonus-item" onclick="showBonus('privacidade')">
+        <span class="bonus-icon">🔒</span>
+        <span class="bonus-name">Privacidade</span>
+      </a>
+    </div>
   </aside>
 
   <!-- MAIN -->
@@ -832,7 +1006,15 @@
       <div class="welcome-hero">
         <h1>Bem-vinda à sua jornada de <em>transformação</em></h1>
         <p>Você agora tem acesso completo aos 10 cortes mais pedidos nos salões do Brasil. Domine cada técnica, aumente sua agenda e seja reconhecida como expert.</p>
-        <button class="cta-primary" onclick="showLesson(1)">▶ Começar o Curso Agora</button>
+        <button class="cta-primary" onclick="showLesson(0)">▶ Começar o Curso Agora</button>
+      </div>
+
+      <div class="update-banner">
+        <div class="update-banner-icon">♾</div>
+        <div>
+          <h3>Acesso vitalício + atualizações gratuitas</h3>
+          <p>Quando um corte novo viralizar ou uma técnica importante surgir, adicionamos no curso e você recebe gratuitamente — sem pagar nada a mais. Pra sempre.</p>
+        </div>
       </div>
 
       <div class="stats-strip">
@@ -867,6 +1049,43 @@
         <div class="corte-card" onclick="showLesson(8)"><div class="corte-num">9</div><div class="corte-info"><h4>Blunt Cut</h4><p>Precisão e sofisticação</p></div></div>
         <div class="corte-card" onclick="showLesson(9)"><div class="corte-num">10</div><div class="corte-info"><h4>Textured Bob</h4><p>Perfeito para cabelos finos</p></div></div>
       </div>
+
+      <div class="fund-section">
+        <h2 class="fund-section-title">📚 Fundamentos Técnicos</h2>
+        <p class="fund-section-subtitle">A base que sustenta todos os 10 cortes — comece por aqui se quer dominar de verdade.</p>
+        <div class="fund-grid">
+          <div class="fund-card" onclick="showBonus('fund-secionamento')">
+            <div class="fund-card-icon">✂</div>
+            <div class="fund-card-num">Fundamento 1</div>
+            <div class="fund-card-title">Divisão e Seccionamento</div>
+            <div class="fund-card-desc">A base de todo corte profissional. Como dividir o cabelo em zonas controladas.</div>
+          </div>
+          <div class="fund-card" onclick="showBonus('fund-camadas')">
+            <div class="fund-card-icon">📐</div>
+            <div class="fund-card-num">Fundamento 2</div>
+            <div class="fund-card-title">Técnicas de Camadas</div>
+            <div class="fund-card-desc">Ângulos de elevação e as 3 técnicas que destravam qualquer corte moderno.</div>
+          </div>
+          <div class="fund-card" onclick="showBonus('fund-acabamento')">
+            <div class="fund-card-icon">✨</div>
+            <div class="fund-card-num">Fundamento 3</div>
+            <div class="fund-card-title">Acabamento Profissional</div>
+            <div class="fund-card-desc">O ritual de finalização que faz a cliente voltar, indicar e postar foto.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="help-footer">
+        <h4>Precisa de ajuda ou tem alguma dúvida?</h4>
+        <p>Suporte rápido, garantia de 7 dias e tudo o que você precisa saber sobre o curso.</p>
+        <div class="help-links">
+          <a class="help-link" onclick="showBonus('suporte')">💬 Suporte</a>
+          <a class="help-link" onclick="showBonus('faq')">❓ Perguntas Frequentes</a>
+          <a class="help-link" onclick="showBonus('reembolso')">🛡 Garantia / Reembolso</a>
+          <a class="help-link" onclick="showBonus('termos')">📄 Termos de Uso</a>
+          <a class="help-link" onclick="showBonus('privacidade')">🔒 Privacidade</a>
+        </div>
+      </div>
     </div>
 
     <!-- LESSON SCREENS (hidden initially) -->
@@ -880,6 +1099,7 @@
           <div class="lesson-number-tag" id="lesson-tag">✂ Aula 1 de 10</div>
           <h1 class="lesson-main-title" id="lesson-title">Long Bob Clássico</h1>
           <p class="lesson-desc" id="lesson-desc">Descrição da aula.</p>
+          <div class="lesson-badges" id="lesson-badges"></div>
         </div>
 
         <div class="tabs">
@@ -1071,6 +1291,429 @@
       </div>
     </div>
 
+    <!-- ═════════ FUNDAMENTOS TÉCNICOS ═════════ -->
+    <div id="bonus-fund-secionamento" class="bonus-page">
+      <div class="bonus-hero">
+        <div class="bonus-hero-tag">📚 Fundamento 1 — Base Técnica</div>
+        <h2 class="bonus-hero-title">Divisão e Seccionamento do Cabelo</h2>
+        <p class="bonus-hero-desc">A base de todo corte profissional. Aprenda como dividir o cabelo corretamente em zonas de trabalho — o passo que separa um corte amador de um corte impecável.</p>
+      </div>
+      <div class="bonus-content-block">
+        <h3>Por que o seccionamento é o segredo do corte profissional</h3>
+        <p style="font-size:15px; color:var(--text2); line-height:1.8; margin-bottom:18px;">90% dos cortes que dão errado começam num seccionamento ruim. Quando você divide o cabelo em zonas controladas, garante simetria, uniformidade e velocidade — três coisas que a cliente percebe imediatamente. Esta aula é a fundação de todos os 10 cortes do curso.</p>
+        <div class="checklist">
+          <div class="checklist-item"><span class="check-icon">✦</span><div class="check-text"><h4>Mapeie a cabeça em zonas anatômicas</h4><p>Crown (coroa), occipital (nuca), parietais (laterais) e frontais (testa). Cada zona tem regras próprias de tensão e direção do corte.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">✦</span><div class="check-text"><h4>Use linhas de partição precisas</h4><p>Linhas retas, curvas ou diagonais — cada tipo serve a um objetivo (volume, redução, movimento). Sempre use o pente fino, nunca o dedo.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">✦</span><div class="check-text"><h4>Sempre 4 quadrantes para cortes longos</h4><p>Comece com a divisão central (testa à nuca) e horizontal (orelha a orelha). Resultado: 4 zonas equilibradas pra trabalhar uma de cada vez.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">✦</span><div class="check-text"><h4>Para cortes curtos, use 5 zonas</h4><p>Adicione uma zona de crown isolada. Ela vai ditar todo o volume superior do corte (essencial para Pixie, Wolf Cut e Butterfly).</p></div></div>
+          <div class="checklist-item"><span class="check-icon">✦</span><div class="check-text"><h4>Presilhas: invista em duck bill profissionais</h4><p>Presilhas baratas escorregam e bagunçam a divisão. Tenha no mínimo 8 presilhas duck bill grandes e 6 pequenas.</p></div></div>
+        </div>
+      </div>
+      <div class="bonus-content-block">
+        <h3>O passo-a-passo do seccionamento universal</h3>
+        <div class="step-card" style="margin-bottom:12px;">
+          <div class="step-number">1</div>
+          <div class="step-body">
+            <h4>Cabelo limpo e desembaraçado</h4>
+            <p>Nunca seccione cabelo sujo ou com nós — você vai perder precisão. Desembarace com escova de cerdas naturais antes de começar.</p>
+          </div>
+        </div>
+        <div class="step-card" style="margin-bottom:12px;">
+          <div class="step-number">2</div>
+          <div class="step-body">
+            <h4>Partição central (testa → nuca)</h4>
+            <p>Com o pente fino, trace uma linha reta do meio da testa até o meio da nuca. Essa linha divide o cabelo em direita e esquerda.</p>
+            <div class="step-tip">💡 Use o nariz da cliente como referência visual pra alinhar a linha central perfeitamente reta.</div>
+          </div>
+        </div>
+        <div class="step-card" style="margin-bottom:12px;">
+          <div class="step-number">3</div>
+          <div class="step-body">
+            <h4>Partição horizontal (orelha → orelha)</h4>
+            <p>Trace uma linha curva passando pelo topo da cabeça, conectando o topo de uma orelha à outra. Agora você tem 4 quadrantes.</p>
+          </div>
+        </div>
+        <div class="step-card" style="margin-bottom:12px;">
+          <div class="step-number">4</div>
+          <div class="step-body">
+            <h4>Prenda cada quadrante separadamente</h4>
+            <p>Use uma presilha grande por quadrante. O cabelo deve estar firme mas sem repuxar o couro cabeludo da cliente.</p>
+            <div class="step-tip">💡 Cliente reclamando de dor é cliente que não volta. Teste a tensão antes de prender.</div>
+          </div>
+        </div>
+        <div class="step-card" style="margin-bottom:12px;">
+          <div class="step-number">5</div>
+          <div class="step-body">
+            <h4>Comece sempre pela nuca</h4>
+            <p>Solte primeiro o quadrante inferior direito. A primeira mecha (guia) deve ter 1–2 cm de espessura e definir todo o comprimento base do corte.</p>
+          </div>
+        </div>
+      </div>
+      <div class="bonus-content-block">
+        <h3>Erros que custam clientes (evite a todo custo)</h3>
+        <div class="checklist">
+          <div class="checklist-item"><span class="check-icon">⚠</span><div class="check-text"><h4>Pular o seccionamento "porque conhece o corte"</h4><p>Mesmo cortes simples ficam tortos sem divisão. Nunca pule esta etapa, nem em corte de manutenção.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">⚠</span><div class="check-text"><h4>Usar mechas grossas demais</h4><p>Mecha acima de 2 cm não permite tensão uniforme. Resultado: degraus visíveis no corte final.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">⚠</span><div class="check-text"><h4>Não umedecer durante o trabalho</h4><p>Cabelo seca enquanto você corta. Tenha um spray de água sempre por perto e re-umedeça a cada 2 minutos.</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="bonus-fund-camadas" class="bonus-page">
+      <div class="bonus-hero">
+        <div class="bonus-hero-tag">📚 Fundamento 2 — Base Técnica</div>
+        <h2 class="bonus-hero-title">Técnicas de Corte em Camadas</h2>
+        <p class="bonus-hero-desc">Camadas são o que dão vida, movimento e volume ao cabelo. Domine os ângulos de elevação e você executa qualquer corte moderno — do Long Bob discreto ao Wolf Cut viral.</p>
+      </div>
+      <div class="bonus-content-block">
+        <h3>A regra dos ângulos — o coração das camadas</h3>
+        <p style="font-size:15px; color:var(--text2); line-height:1.8; margin-bottom:18px;">Todo corte em camadas é definido pelo ângulo em que você eleva a mecha. Memorize esta tabela — ela vale para todos os cortes do curso.</p>
+        <div class="pricing-table-wrap"><table class="pricing-table">
+          <tr><th>Ângulo</th><th>Resultado</th><th>Indicado para</th></tr>
+          <tr><td>0° (chão)</td><td>Corte reto / Blunt</td><td>Bob, Blunt Cut, Long Bob clássico</td></tr>
+          <tr><td>45°</td><td>Camadas suaves</td><td>Long Bob com movimento, Layers Face-Framing</td></tr>
+          <tr><td>90° (paralelo)</td><td>Camadas uniformes</td><td>Shag, Butterfly Cut</td></tr>
+          <tr><td>135°</td><td>Camadas longas (V invertido)</td><td>Wolf Cut, cortes com movimento dramático</td></tr>
+          <tr><td>180° (vertical)</td><td>Camadas máximas</td><td>Pixie Moderno, crown do Wolf Cut</td></tr>
+        </table></div>
+      </div>
+      <div class="bonus-content-block">
+        <h3>As 3 técnicas de camadas que você precisa dominar</h3>
+        <div class="step-card" style="margin-bottom:12px;">
+          <div class="step-number">1</div>
+          <div class="step-body">
+            <h4>Camadas Uniformes (90°)</h4>
+            <p>Eleve cada mecha exatamente a 90° do couro cabeludo e corte na mesma medida. Resultado: volume uniforme em toda a cabeça.</p>
+            <div class="step-tip">💡 Use para Shag e Butterfly Cut. Mantenha o pulso firme — variação no ângulo cria irregularidade.</div>
+          </div>
+        </div>
+        <div class="step-card" style="margin-bottom:12px;">
+          <div class="step-number">2</div>
+          <div class="step-body">
+            <h4>Camadas Graduadas (45° a 90°)</h4>
+            <p>O ângulo varia conforme você sobe na cabeça. Mais baixo embaixo (mais comprimento), mais alto em cima (mais volume).</p>
+            <div class="step-tip">💡 Técnica clássica do Long Bob com movimento. Cria efeito de "queda natural" elegante.</div>
+          </div>
+        </div>
+        <div class="step-card" style="margin-bottom:12px;">
+          <div class="step-number">3</div>
+          <div class="step-body">
+            <h4>Camadas Invertidas (180°)</h4>
+            <p>Puxe a mecha para cima e para a frente. Corte em diagonal — mais curto na raiz, mais longo na ponta. Camadas máximas, comprimento preservado.</p>
+            <div class="step-tip">💡 Técnica chave do Wolf Cut e do crown do Butterfly. É o que cria o efeito viral nas redes.</div>
+          </div>
+        </div>
+      </div>
+      <div class="bonus-content-block">
+        <h3>Tensão e Posição da Tesoura</h3>
+        <div class="checklist">
+          <div class="checklist-item"><span class="check-icon">✦</span><div class="check-text"><h4>Tensão uniforme = corte uniforme</h4><p>Puxe TODAS as mechas com a mesma força (cerca de 60% da força máxima). Variação na tensão é a principal causa de degraus.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">✦</span><div class="check-text"><h4>Tesoura paralela à mecha, sempre</h4><p>A tesoura deve estar alinhada com a direção em que você quer o corte cair. Tesoura inclinada = corte inclinado.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">✦</span><div class="check-text"><h4>Use sempre uma mecha-guia</h4><p>Corte uma primeira mecha como referência e use ela pra "espelhar" todas as outras. Não invente comprimento — siga a guia.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">✦</span><div class="check-text"><h4>Para cabelos crespos/cacheados: corte mais comprimento</h4><p>Cabelo crespo encolhe 30–50% ao secar. Deixe sempre 2–3 dedos a mais que o comprimento desejado.</p></div></div>
+        </div>
+      </div>
+      <div class="bonus-content-block">
+        <h3>Glossário rápido — vocabulário profissional</h3>
+        <div class="checklist">
+          <div class="checklist-item"><span class="check-icon">📖</span><div class="check-text"><h4>Point Cutting</h4><p>Tesoura na vertical, cortes pequenos nas pontas. Texturiza sem encurtar.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">📖</span><div class="check-text"><h4>Slide Cutting</h4><p>Tesoura semi-aberta deslizando pela mecha. Cria movimento e suavidade.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">📖</span><div class="check-text"><h4>Blunt Cutting</h4><p>Corte reto e fechado na pontas. Linha definida e sofisticada.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">📖</span><div class="check-text"><h4>Over-direction</h4><p>Puxar a mecha além da sua posição natural pra criar comprimento extra em uma direção.</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="bonus-fund-acabamento" class="bonus-page">
+      <div class="bonus-hero">
+        <div class="bonus-hero-tag">📚 Fundamento 3 — Base Técnica</div>
+        <h2 class="bonus-hero-title">Acabamento e Finalização Profissional</h2>
+        <p class="bonus-hero-desc">O que separa um corte bom de um corte memorável: o acabamento. É aqui que a cliente decide se vai voltar, indicar e postar foto.</p>
+      </div>
+      <div class="bonus-content-block">
+        <h3>Por que o acabamento vale tanto quanto o corte</h3>
+        <p style="font-size:15px; color:var(--text2); line-height:1.8; margin-bottom:18px;">A cliente nunca vai lembrar do ângulo da sua tesoura. Mas vai lembrar do momento em que ela se viu no espelho com o cabelo escovado, brilhando e caindo perfeitamente. O acabamento é o que ela posta no Instagram — e o que faz a amiga dela te ligar.</p>
+      </div>
+      <div class="bonus-content-block">
+        <h3>O ritual de finalização em 6 etapas</h3>
+        <div class="step-card" style="margin-bottom:12px;">
+          <div class="step-number">1</div>
+          <div class="step-body">
+            <h4>Revisão do corte com cabelo seco</h4>
+            <p>Seque o cabelo completamente e revise mecha por mecha. Use tesoura de ponta pra ajustar qualquer irregularidade — cabelo seco mostra o que estava escondido no úmido.</p>
+            <div class="step-tip">💡 Esta é a etapa mais ignorada por amadoras. Profissionais sempre revisam no seco.</div>
+          </div>
+        </div>
+        <div class="step-card" style="margin-bottom:12px;">
+          <div class="step-number">2</div>
+          <div class="step-body">
+            <h4>Aplicação do finalizador correto</h4>
+            <p>Cada corte pede um produto diferente. Long Bob: sérum anti-frizz. Butterfly: mousse + sal spray. Pixie: pomada. Veja o bônus "Guia de Produtos por Corte" para a lista completa.</p>
+          </div>
+        </div>
+        <div class="step-card" style="margin-bottom:12px;">
+          <div class="step-number">3</div>
+          <div class="step-body">
+            <h4>Escovação direcional</h4>
+            <p>Sempre escove na direção em que o corte foi pensado. Escovar contra o sentido do corte arruína a forma. Use escova redonda pra cortes com volume, escova plana pra cortes lisos.</p>
+            <div class="step-tip">💡 Termine sempre com ar frio do secador — ele fixa o cabelo na posição e amplifica o brilho.</div>
+          </div>
+        </div>
+        <div class="step-card" style="margin-bottom:12px;">
+          <div class="step-number">4</div>
+          <div class="step-body">
+            <h4>Finalização das pontas</h4>
+            <p>Use prancha ou babyliss pra dar o acabamento final nas pontas. Mesmo cortes "naturais" precisam de um toque de finalização visual.</p>
+          </div>
+        </div>
+        <div class="step-card" style="margin-bottom:12px;">
+          <div class="step-number">5</div>
+          <div class="step-body">
+            <h4>Spray de brilho — o segredo do "uau"</h4>
+            <p>Borrife spray de brilho a 30 cm do cabelo. Não exagere — 2–3 borrifadas bastam. O efeito de luz na hora da foto faz todo o trabalho.</p>
+          </div>
+        </div>
+        <div class="step-card" style="margin-bottom:12px;">
+          <div class="step-number">6</div>
+          <div class="step-body">
+            <h4>O grande reveal</h4>
+            <p>Vire a cadeira lentamente. Entregue um espelho de mão pra ela ver a nuca. Sorria. Fique em silêncio enquanto ela se vê. Esse momento é o que ela vai contar pra todas as amigas.</p>
+            <div class="step-tip">💡 SEMPRE peça permissão pra tirar foto do antes/depois. É seu portfólio e a sua propaganda mais barata.</div>
+          </div>
+        </div>
+      </div>
+      <div class="bonus-content-block">
+        <h3>Checklist final — antes da cliente sair</h3>
+        <div class="checklist">
+          <div class="checklist-item"><span class="check-icon">✓</span><div class="check-text"><h4>Cabelo escovado, sem nó, sem ponta solta</h4><p>Olhe a nuca com espelho duplo. Se você não checaria a sua, não deixa a dela.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">✓</span><div class="check-text"><h4>Pescoço e orelhas limpos</h4><p>Cabelo cortado grudado na pele é a primeira reclamação no Google Reviews. Use pincel grande pra limpar.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">✓</span><div class="check-text"><h4>Roupa da cliente sem fios</h4><p>Use rolo adesivo se necessário. Cliente saindo com fios na blusa = "ela nem se preocupou comigo".</p></div></div>
+          <div class="checklist-item"><span class="check-icon">✓</span><div class="check-text"><h4>Recomendação de manutenção</h4><p>Diga claramente: "Pra manter esse corte lindo, te espero em [X] semanas". Já agende ali se possível.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">✓</span><div class="check-text"><h4>Foto pro portfólio (com permissão)</h4><p>Boa iluminação, fundo neutro, foco no cabelo. Use o roteiro do bônus "Bombar no Instagram" pra postar.</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═════════ PÁGINAS LEGAIS ═════════ -->
+    <div id="bonus-suporte" class="bonus-page">
+      <div class="bonus-hero">
+        <div class="bonus-hero-tag">💬 Suporte</div>
+        <h2 class="bonus-hero-title">Fale com a gente</h2>
+        <p class="bonus-hero-desc">Estamos aqui pra te ajudar com qualquer dúvida sobre o curso, acesso, conteúdo, certificado ou reembolso. Resposta em até 24h em dias úteis.</p>
+      </div>
+      <div class="bonus-content-block">
+        <h3>Canais de atendimento</h3>
+        <div class="checklist">
+          <a href="https://instagram.com/cortestop.brasil" target="_blank" rel="noopener" class="checklist-item" style="text-decoration:none; cursor:pointer;">
+            <span class="check-icon" style="font-size:22px;">📸</span>
+            <div class="check-text">
+              <h4>Instagram @cortestop.brasil</h4>
+              <p>Nosso canal principal de suporte. Envie uma mensagem no direct contando sua dúvida — respondemos em até 24h em dias úteis.</p>
+              <p style="margin-top:6px; color:var(--gold-dark); font-weight:600;">→ Abrir Instagram</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="bonus-content-block">
+        <h3>Como nos contatar de forma eficiente</h3>
+        <div class="checklist">
+          <div class="checklist-item"><span class="check-icon">1</span><div class="check-text"><h4>Conte qual é o assunto</h4><p>Dúvida de conteúdo? Problema de acesso? Solicitação de reembolso? Quanto mais claro, mais rápido a gente resolve.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">2</span><div class="check-text"><h4>Mande o e-mail da compra</h4><p>É como confirmamos seu acesso. Use o mesmo e-mail que você cadastrou no checkout.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">3</span><div class="check-text"><h4>Se for reembolso, leia primeiro</h4><p>Veja a Política de Reembolso (no menu) pra entender o processo. É simples e sem burocracia.</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="bonus-reembolso" class="bonus-page">
+      <div class="bonus-hero">
+        <div class="bonus-hero-tag">🛡 Garantia Incondicional</div>
+        <h2 class="bonus-hero-title">Política de Reembolso — 7 Dias</h2>
+        <p class="bonus-hero-desc">Você tem 7 dias completos pra assistir o curso, praticar e decidir se serve pra você. Se não servir, devolvemos 100% do valor. Sem perguntas, sem formulário, sem espera.</p>
+      </div>
+      <div class="bonus-content-block">
+        <h3>Como funciona a garantia</h3>
+        <div class="checklist">
+          <div class="checklist-item"><span class="check-icon">✓</span><div class="check-text"><h4>Prazo: 7 dias corridos a partir da compra</h4><p>O prazo começa no momento em que o pagamento é confirmado e você recebe o acesso ao curso.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">✓</span><div class="check-text"><h4>Devolução integral de 100%</h4><p>Você recebe o valor exato pago, sem retenções, taxas administrativas ou descontos. Pago em PIX? Devolução em PIX. Pago em cartão? Estorno no cartão.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">✓</span><div class="check-text"><h4>Sem perguntas, sem justificativas</h4><p>Você não precisa explicar o motivo. Não pedimos formulário, não fazemos pesquisa de saída, não tentamos te convencer a ficar.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">✓</span><div class="check-text"><h4>Processamento em até 5 dias úteis</h4><p>Após sua solicitação, o reembolso entra na fila e é processado em até 5 dias úteis. PIX costuma cair em até 24h.</p></div></div>
+        </div>
+      </div>
+      <div class="bonus-content-block">
+        <h3>Como solicitar o reembolso</h3>
+        <div class="step-card" style="margin-bottom:12px;">
+          <div class="step-number">1</div>
+          <div class="step-body">
+            <h4>Mande mensagem no Instagram @cortestop.brasil</h4>
+            <p>Envie um direct dizendo: "Quero solicitar reembolso do curso". Só isso — não precisa de mais nada.</p>
+          </div>
+        </div>
+        <div class="step-card" style="margin-bottom:12px;">
+          <div class="step-number">2</div>
+          <div class="step-body">
+            <h4>Informe o e-mail da compra</h4>
+            <p>É como confirmamos seu cadastro. Use o mesmo e-mail que você usou no checkout.</p>
+          </div>
+        </div>
+        <div class="step-card" style="margin-bottom:12px;">
+          <div class="step-number">3</div>
+          <div class="step-body">
+            <h4>Receba a confirmação em até 24h úteis</h4>
+            <p>Confirmamos o pedido, processamos o reembolso e te avisamos quando o valor for devolvido.</p>
+          </div>
+        </div>
+      </div>
+      <div class="bonus-content-block">
+        <h3>Direito de arrependimento (Código de Defesa do Consumidor)</h3>
+        <p style="font-size:15px; color:var(--text2); line-height:1.8;">Além da nossa garantia de 7 dias, você tem o direito legal previsto no <strong>Art. 49 do CDC</strong> de desistir da compra em até 7 dias quando feita fora de estabelecimento comercial (compras online). Nossa garantia respeita e amplia essa proteção.</p>
+      </div>
+    </div>
+
+    <div id="bonus-faq" class="bonus-page">
+      <div class="bonus-hero">
+        <div class="bonus-hero-tag">❓ Perguntas Frequentes</div>
+        <h2 class="bonus-hero-title">FAQ — Tudo o que você precisa saber</h2>
+        <p class="bonus-hero-desc">As dúvidas mais comuns das alunas, respondidas. Não achou o que procura? Fala com a gente no Instagram @cortestop.brasil.</p>
+      </div>
+      <div class="bonus-content-block">
+        <h3>Acesso e Conteúdo</h3>
+        <div class="checklist">
+          <div class="checklist-item"><span class="check-icon">?</span><div class="check-text"><h4>Por quanto tempo tenho acesso?</h4><p>Acesso vitalício. Você compra uma vez e nunca mais paga nada — pode assistir quantas vezes quiser, pra sempre. Sem mensalidade, sem renovação.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">?</span><div class="check-text"><h4>O curso é 100% online?</h4><p>Sim. Você acessa de qualquer lugar pelo celular, tablet ou computador. Basta ter internet.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">?</span><div class="check-text"><h4>Funciona no celular?</h4><p>Sim, todo o curso foi feito pensando no celular. Você pode assistir aulas no salão entre clientes, no transporte, em casa.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">?</span><div class="check-text"><h4>Posso baixar os vídeos?</h4><p>Os vídeos rodam direto na plataforma, sem necessidade de download. Você assiste sempre com a melhor qualidade disponível.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">?</span><div class="check-text"><h4>Vai ter atualização de conteúdo?</h4><p>Sim. Quando um corte novo viralizar ou uma técnica importante surgir, adicionamos no curso e você recebe gratuitamente — sem pagar nada a mais.</p></div></div>
+        </div>
+      </div>
+      <div class="bonus-content-block">
+        <h3>Pagamento e Garantia</h3>
+        <div class="checklist">
+          <div class="checklist-item"><span class="check-icon">?</span><div class="check-text"><h4>O pagamento é seguro?</h4><p>Sim. Trabalhamos com plataformas certificadas (criptografia SSL). Seus dados estão protegidos.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">?</span><div class="check-text"><h4>Posso pagar parcelado?</h4><p>Sim. Aceitamos PIX (à vista) ou cartão em até 3× sem juros.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">?</span><div class="check-text"><h4>Em quanto tempo recebo o acesso?</h4><p>Imediato. Assim que o pagamento for confirmado (PIX leva minutos, cartão alguns segundos), você recebe o link de acesso por e-mail.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">?</span><div class="check-text"><h4>E se eu não gostar do curso?</h4><p>Você tem 7 dias pra pedir reembolso 100%. Sem perguntas, sem formulário. Veja a Política de Reembolso pra detalhes.</p></div></div>
+        </div>
+      </div>
+      <div class="bonus-content-block">
+        <h3>Certificado</h3>
+        <div class="checklist">
+          <div class="checklist-item"><span class="check-icon">?</span><div class="check-text"><h4>O certificado é válido?</h4><p>É um certificado de conclusão de curso livre, emitido pela CortesTop. Serve para comprovar capacitação técnica em portfólios, currículos e divulgação profissional. Não é diploma reconhecido pelo MEC (cursos livres não exigem).</p></div></div>
+          <div class="checklist-item"><span class="check-icon">?</span><div class="check-text"><h4>Como recebo o certificado?</h4><p>Após concluir as aulas, vá em "Meu Certificado" no menu, digite seu nome e baixe em PDF ou imprima. Pronto.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">?</span><div class="check-text"><h4>Preciso pagar algo a mais pelo certificado?</h4><p>Não. O certificado está incluso no valor do curso. Sem custo extra, nunca.</p></div></div>
+        </div>
+      </div>
+      <div class="bonus-content-block">
+        <h3>Conteúdo Técnico</h3>
+        <div class="checklist">
+          <div class="checklist-item"><span class="check-icon">?</span><div class="check-text"><h4>Funciona pra quem é iniciante?</h4><p>Sim. Antes dos 10 cortes você tem o módulo de Fundamentos Técnicos (Seccionamento, Camadas, Acabamento) pra construir a base. Se você já trabalha como cabeleireira, vai dominar mais rápido — mas todo conteúdo é explicado do zero.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">?</span><div class="check-text"><h4>Quais ferramentas preciso ter?</h4><p>Cada aula lista as ferramentas usadas. O kit básico: tesoura 5.5"–6.0", tesoura de ponta, navalha de acabamento, pente fino, presilhas duck bill, spray de água.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">?</span><div class="check-text"><h4>Vocês ensinam coloração também?</h4><p>Não, este curso é especificamente sobre os 10 cortes mais pedidos. Coloração é assunto pra outro curso completo.</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="bonus-termos" class="bonus-page">
+      <div class="bonus-hero">
+        <div class="bonus-hero-tag">📄 Termos de Uso</div>
+        <h2 class="bonus-hero-title">Termos de Uso da Plataforma</h2>
+        <p class="bonus-hero-desc">Última atualização: maio de 2026. Estes termos regem o uso do curso CortesTop. Ao acessar o conteúdo, você concorda com as condições abaixo.</p>
+      </div>
+      <div class="bonus-content-block">
+        <h3>1. Sobre o curso</h3>
+        <p style="font-size:15px; color:var(--text2); line-height:1.8; margin-bottom:14px;">O <strong>CortesTop</strong> é um curso digital de capacitação profissional em técnicas de corte de cabelo, composto por 10 módulos principais, módulo de fundamentos técnicos e 4 bônus complementares, acessível através de plataforma online.</p>
+      </div>
+      <div class="bonus-content-block">
+        <h3>2. Acesso e licença de uso</h3>
+        <p style="font-size:15px; color:var(--text2); line-height:1.8; margin-bottom:14px;">Ao adquirir o curso, você recebe uma <strong>licença pessoal, intransferível e vitalícia</strong> de acesso ao conteúdo. Isso significa:</p>
+        <div class="checklist">
+          <div class="checklist-item"><span class="check-icon">✓</span><div class="check-text"><h4>O acesso é exclusivo da pessoa que comprou</h4><p>Não compartilhe seu login ou link de acesso com terceiros. O acesso é pessoal e intransferível.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">✓</span><div class="check-text"><h4>Você pode assistir quantas vezes quiser, pra sempre</h4><p>Não há prazo de expiração nem limite de visualizações.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">⚠</span><div class="check-text"><h4>É proibido redistribuir o conteúdo</h4><p>Você não pode baixar, gravar, copiar, revender, republicar ou distribuir o conteúdo do curso por qualquer meio. Conteúdo redistribuído sem autorização sujeita o responsável a ação legal por violação de direitos autorais (Lei 9.610/98).</p></div></div>
+        </div>
+      </div>
+      <div class="bonus-content-block">
+        <h3>3. Direitos autorais</h3>
+        <p style="font-size:15px; color:var(--text2); line-height:1.8; margin-bottom:14px;">Todo o conteúdo do curso (vídeos, textos, imagens, identidade visual, scripts e materiais complementares) é de propriedade da <strong>CortesTop</strong> e protegido pela Lei de Direitos Autorais brasileira (Lei nº 9.610/98). Qualquer uso não autorizado configura infração civil e criminal.</p>
+      </div>
+      <div class="bonus-content-block">
+        <h3>4. Pagamento e reembolso</h3>
+        <p style="font-size:15px; color:var(--text2); line-height:1.8; margin-bottom:14px;">As condições de pagamento e a política de reembolso estão descritas na <strong>Política de Reembolso</strong> (disponível no menu). Garantimos reembolso integral em até 7 dias corridos a partir da data da compra, conforme Art. 49 do CDC e nossa garantia adicional.</p>
+      </div>
+      <div class="bonus-content-block">
+        <h3>5. Natureza do conteúdo</h3>
+        <p style="font-size:15px; color:var(--text2); line-height:1.8; margin-bottom:14px;">O curso é uma <strong>capacitação técnica de natureza informativa e educacional</strong>. Os resultados financeiros mencionados (faixas de preço cobradas por corte) são referências de mercado baseadas em dados de salões em diferentes regiões do Brasil — não constituem promessa de ganho. Resultados individuais variam conforme localização, experiência prévia, esforço aplicado, qualidade do atendimento e outros fatores próprios de cada profissional.</p>
+      </div>
+      <div class="bonus-content-block">
+        <h3>6. Responsabilidades do aluno</h3>
+        <div class="checklist">
+          <div class="checklist-item"><span class="check-icon">✓</span><div class="check-text"><h4>Praticar as técnicas com responsabilidade</h4><p>As técnicas devem ser praticadas em ambiente apropriado (salão, escola profissional ou em si mesma). Antes de aplicar em clientes pagantes, recomendamos treino com manequins de prática.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">✓</span><div class="check-text"><h4>Manter dados de cadastro corretos</h4><p>Você é responsável por manter seu e-mail e contato atualizados pra receber comunicações.</p></div></div>
+        </div>
+      </div>
+      <div class="bonus-content-block">
+        <h3>7. Suspensão de acesso</h3>
+        <p style="font-size:15px; color:var(--text2); line-height:1.8; margin-bottom:14px;">A CortesTop reserva o direito de suspender o acesso de alunos que: compartilhem credenciais com terceiros, redistribuam o conteúdo, façam uso indevido da plataforma ou pratiquem qualquer ato que viole estes termos ou a legislação brasileira. A suspensão por uso indevido não enseja direito a reembolso.</p>
+      </div>
+      <div class="bonus-content-block">
+        <h3>8. Alterações nos termos</h3>
+        <p style="font-size:15px; color:var(--text2); line-height:1.8; margin-bottom:14px;">Estes termos podem ser atualizados periodicamente. Alterações relevantes serão comunicadas pelo e-mail cadastrado. O uso contínuo da plataforma após atualizações configura aceite.</p>
+      </div>
+      <div class="bonus-content-block">
+        <h3>9. Foro</h3>
+        <p style="font-size:15px; color:var(--text2); line-height:1.8;">Para qualquer questão jurídica relativa a estes termos, fica eleito o foro da comarca de domicílio do consumidor, conforme prevê o Código de Defesa do Consumidor.</p>
+      </div>
+    </div>
+
+    <div id="bonus-privacidade" class="bonus-page">
+      <div class="bonus-hero">
+        <div class="bonus-hero-tag">🔒 Privacidade</div>
+        <h2 class="bonus-hero-title">Política de Privacidade</h2>
+        <p class="bonus-hero-desc">Em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD). Última atualização: maio de 2026.</p>
+      </div>
+      <div class="bonus-content-block">
+        <h3>1. Quais dados coletamos</h3>
+        <p style="font-size:15px; color:var(--text2); line-height:1.8; margin-bottom:14px;">Para te entregar o curso, coletamos os seguintes dados:</p>
+        <div class="checklist">
+          <div class="checklist-item"><span class="check-icon">📋</span><div class="check-text"><h4>Nome completo</h4><p>Usado para personalizar o certificado de conclusão e a comunicação com você.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">📧</span><div class="check-text"><h4>E-mail</h4><p>Para envio do acesso ao curso, comunicados importantes, atualizações de conteúdo e suporte.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">💳</span><div class="check-text"><h4>Dados de pagamento</h4><p>Processados exclusivamente pela plataforma de pagamento (não armazenamos número de cartão). Recebemos apenas o status da transação.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">📊</span><div class="check-text"><h4>Dados de navegação</h4><p>Aulas assistidas, progresso no curso e horários de acesso — para te oferecer uma experiência melhor.</p></div></div>
+        </div>
+      </div>
+      <div class="bonus-content-block">
+        <h3>2. Como usamos seus dados</h3>
+        <div class="checklist">
+          <div class="checklist-item"><span class="check-icon">✓</span><div class="check-text"><h4>Para entregar o serviço contratado</h4><p>Liberar acesso, emitir certificado, processar pagamento, oferecer suporte.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">✓</span><div class="check-text"><h4>Para te comunicar atualizações</h4><p>Avisar sobre novos cortes adicionados, melhorias na plataforma ou questões importantes do curso.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">⚠</span><div class="check-text"><h4>Nunca vendemos ou compartilhamos seus dados</h4><p>Seus dados são exclusivamente nossos para fins do curso. Não vendemos, alugamos ou compartilhamos com anunciantes ou terceiros sem sua autorização explícita.</p></div></div>
+        </div>
+      </div>
+      <div class="bonus-content-block">
+        <h3>3. Seus direitos (LGPD Art. 18)</h3>
+        <p style="font-size:15px; color:var(--text2); line-height:1.8; margin-bottom:14px;">Como titular dos seus dados, você tem direito a:</p>
+        <div class="checklist">
+          <div class="checklist-item"><span class="check-icon">→</span><div class="check-text"><h4>Confirmação e acesso</h4><p>Saber se tratamos seus dados e quais dados temos sobre você.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">→</span><div class="check-text"><h4>Correção</h4><p>Pedir correção de dados incorretos ou desatualizados.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">→</span><div class="check-text"><h4>Eliminação</h4><p>Solicitar a exclusão dos seus dados (exceto os que somos obrigados por lei a manter, como dados fiscais).</p></div></div>
+          <div class="checklist-item"><span class="check-icon">→</span><div class="check-text"><h4>Portabilidade</h4><p>Receber seus dados em formato estruturado pra levar pra outro serviço.</p></div></div>
+          <div class="checklist-item"><span class="check-icon">→</span><div class="check-text"><h4>Revogar consentimento</h4><p>A qualquer momento, você pode revogar a autorização de uso dos seus dados.</p></div></div>
+        </div>
+        <p style="font-size:14px; color:var(--text2); line-height:1.7; margin-top:14px;">Para exercer qualquer desses direitos, mande mensagem no Instagram <strong>@cortestop.brasil</strong>.</p>
+      </div>
+      <div class="bonus-content-block">
+        <h3>4. Segurança dos dados</h3>
+        <p style="font-size:15px; color:var(--text2); line-height:1.8; margin-bottom:14px;">Usamos plataformas de pagamento certificadas (criptografia SSL), armazenamento seguro e acesso restrito aos dados. Em caso de incidente de segurança que possa afetar você, comunicaremos no prazo previsto pela LGPD.</p>
+      </div>
+      <div class="bonus-content-block">
+        <h3>5. Tempo de retenção</h3>
+        <p style="font-size:15px; color:var(--text2); line-height:1.8; margin-bottom:14px;">Mantemos seus dados enquanto você tiver acesso ao curso (que é vitalício). Dados fiscais (notas, transações) são mantidos pelo prazo legal exigido pela Receita Federal.</p>
+      </div>
+      <div class="bonus-content-block">
+        <h3>6. Cookies</h3>
+        <p style="font-size:15px; color:var(--text2); line-height:1.8;">A plataforma usa cookies essenciais para o funcionamento (manter sua sessão ativa, lembrar progresso nas aulas). Não usamos cookies de rastreamento publicitário.</p>
+      </div>
+    </div>
+
     <!-- CERTIFICADO -->
     <div id="cert-page" class="cert-page">
       <h2 style="font-family:'Playfair Display',serif; font-size:24px; margin-bottom:24px; color:var(--dark);">Seu Certificado de Conclusão</h2>
@@ -1112,6 +1755,7 @@ const lessons = [
   {
     title: "Long Bob Clássico",
     desc: "O corte mais pedido nos salões brasileiros. Aprenda todas as variações do Long Bob — desde o mais estruturado ao mais texturizado — para diferentes tipos de fio.",
+    tempo: "60 min", preco: "R$ 150 – R$ 400",
     video: "https://drive.google.com/file/d/1gJvXMZnKmq1W12yQyLBMWgnSJRbUVaE8/preview", localVideo: "",
     steps: [
       { title: "Preparação do cabelo", body: "Lave e condicione com produtos de suavização leve. Seque parcialmente — o cabelo deve estar 80% seco, sem frizz.", tip: "💡 Nunca corte cabelo molhado demais: o fio estica e você pode tirar mais comprimento do que planejado." },
@@ -1134,6 +1778,7 @@ const lessons = [
   {
     title: "Butterfly Cut",
     desc: "O corte que virou febre nas redes sociais. Camadas longas por fora e curtas por dentro criam o efeito 'asa de borboleta' ao abrir o cabelo.",
+    tempo: "90 min", preco: "R$ 200 – R$ 350",
     video: "",
     video: "https://drive.google.com/file/d/1QMg93k7zxqZMlDEtXywp8iU5o11EzhNQ/preview", localVideo: "",
     steps: [
@@ -1156,6 +1801,7 @@ const lessons = [
   {
     title: "Pixie Moderno",
     desc: "O Pixie Moderno é curto, elegante e cheio de personalidade. Versátil para mulheres decididas que querem praticidade sem abrir mão do estilo.",
+    tempo: "60 min", preco: "R$ 150 – R$ 280",
     video: "",
     video: "https://drive.google.com/file/d/1vnsH3HU8ZMfQy7iy6KaHVRiStBJBdZPp/preview", localVideo: "",
     steps: [
@@ -1176,6 +1822,7 @@ const lessons = [
   {
     title: "Shag Repicado",
     desc: "O Shag é o corte descontraído por excelência — camadas abundantes, franja opcional e movimento natural que funciona em qualquer tipo de fio.",
+    tempo: "75 min", preco: "R$ 180 – R$ 280",
     video: "",
     video: "https://drive.google.com/file/d/1JJrC3kvZW-Xu2_wmIR6ImWTKjUuQCGzp/preview", localVideo: "",
     steps: [
@@ -1196,6 +1843,7 @@ const lessons = [
   {
     title: "Bob Assimétrico",
     desc: "A versão moderna e atrevida do Bob clássico — comprimentos diferentes nas laterais criam um visual marcante e sofisticado.",
+    tempo: "70 min", preco: "R$ 200 – R$ 350",
     video: "",
     video: "https://drive.google.com/file/d/1Mjxsjx_DsQDBuhCniVmFvnDeGjQbW8gj/preview", localVideo: "",
     steps: [
@@ -1216,6 +1864,7 @@ const lessons = [
   {
     title: "Wolf Cut",
     desc: "A mistura perfeita de Shag e Mullet — o Wolf Cut é o corte mais pedido pelas jovens, com camadas pesadas no topo e comprimento preservado nas pontas.",
+    tempo: "80 min", preco: "R$ 180 – R$ 300",
     video: "",
     video: "https://drive.google.com/file/d/1SuAaeJYQy87ndfr2zTe67MkRvj4AtPyw/preview", localVideo: "",
     steps: [
@@ -1236,6 +1885,7 @@ const lessons = [
   {
     title: "Curtain Bangs",
     desc: "A franja em cortina que combina com qualquer formato de rosto — suave, romântica e muito versátil para diferentes estilos.",
+    tempo: "30 min", preco: "R$ 70 – R$ 200",
     video: "",
     video: "https://drive.google.com/file/d/1VlhduI_aXhIfjwV4vfcUE9u-bAKAhwsh/preview", localVideo: "",
     steps: [
@@ -1256,6 +1906,7 @@ const lessons = [
   {
     title: "Layers Face-Framing",
     desc: "Camadas estrategicamente posicionadas para valorizar o formato do rosto de cada cliente — personalizado, técnico e extremamente requisitado.",
+    tempo: "45 min", preco: "R$ 150 – R$ 300",
     video: "",
     video: "https://drive.google.com/file/d/1znC9zYo7Z9BFk1yqJElNTpZ7azNArNuO/preview", localVideo: "",
     steps: [
@@ -1276,6 +1927,7 @@ const lessons = [
   {
     title: "Blunt Cut",
     desc: "O corte mais limpo e sofisticado — linha reta e precisa que transmite elegância e requinte. Muito pedido por mulheres executivas e que amam o estilo minimalista.",
+    tempo: "60 min", preco: "R$ 180 – R$ 350",
     video: "",
     video: "https://drive.google.com/file/d/10bV8RrfBNta01W6U4B3YWtzvmiu5D_vL/preview", localVideo: "",
     steps: [
@@ -1297,6 +1949,7 @@ const lessons = [
   {
     title: "Textured Bob",
     desc: "O Bob com alma e movimento — textura, volume e leveza que transforma especialmente cabelos finos em penteados com muito mais corpo.",
+    tempo: "70 min", preco: "R$ 180 – R$ 280",
     video: "",
     video: "https://drive.google.com/file/d/1_Cwd6LoM8Ypc94jpVHJz0cT5zSSSTIAH/preview", localVideo: "",
     steps: [
@@ -1353,6 +2006,11 @@ function showLesson(idx) {
   document.getElementById('lesson-tag').textContent = '✂ Aula ' + (idx + 1) + ' de 10';
   document.getElementById('lesson-title').textContent = l.title;
   document.getElementById('lesson-desc').textContent = l.desc;
+
+  const badgesEl = document.getElementById('lesson-badges');
+  badgesEl.innerHTML =
+    (l.tempo ? '<div class="lesson-badge-item"><span class="badge-icon">⏱</span><div><div class="badge-label">Tempo médio</div><div class="badge-value">' + l.tempo + '</div></div></div>' : '') +
+    (l.preco ? '<div class="lesson-badge-item price"><span class="badge-icon">💰</span><div><div class="badge-label">Cobre</div><div class="badge-value">' + l.preco + '</div></div></div>' : '');
 
   const wrapper = document.getElementById('video-wrapper');
   if (l.video) {
@@ -1462,8 +2120,13 @@ function switchTab(name, btn) {
 function showBonus(id) {
   closeSidebar();
   hideAll();
-  setActiveNav('bn-bonus');
+  const legalIds = ['suporte', 'faq', 'reembolso', 'termos', 'privacidade'];
+  const fundIds = ['fund-secionamento', 'fund-camadas', 'fund-acabamento'];
+  if (legalIds.includes(id)) setActiveNav('bn-ajuda');
+  else if (fundIds.includes(id)) setActiveNav('bn-aulas');
+  else setActiveNav('bn-bonus');
   document.getElementById('bonus-' + id).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function showCert() {
@@ -1537,6 +2200,10 @@ function setActiveNav(id) {
     <button class="bn-btn" id="bn-cert" onclick="showCert()">
       <span class="bn-icon">🎓</span>
       <span class="bn-label">Cert.</span>
+    </button>
+    <button class="bn-btn" id="bn-ajuda" onclick="showBonus('suporte')">
+      <span class="bn-icon">💬</span>
+      <span class="bn-label">Ajuda</span>
     </button>
   </div>
 </nav>
